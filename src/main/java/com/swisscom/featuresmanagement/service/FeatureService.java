@@ -3,6 +3,8 @@ package com.swisscom.featuresmanagement.service;
 import com.swisscom.featuresmanagement.entity.FeatureEntity;
 import com.swisscom.featuresmanagement.repository.FeatureRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,6 +18,8 @@ import java.util.Optional;
 @Service
 @EnableScheduling
 public class FeatureService {
+
+    private final static Logger logger = LoggerFactory.getLogger(FeatureService.class);
 
     private final FeatureRepository featureRepository;
 
@@ -34,6 +38,7 @@ public class FeatureService {
     public FeatureEntity createFeature(FeatureEntity feature) {
         Optional<FeatureEntity> optionalFeature = featureRepository.findByTechnicalName(feature.getTechnicalName());
         if (optionalFeature.isPresent()) {
+            logger.info("A feature with the same technical name is already inserted: {}", feature);
             throw new ResponseStatusException(HttpStatus.CONFLICT, "There is already a feature called " + feature.getTechnicalName());
         }
         feature.setCreated(LocalDateTime.now());
