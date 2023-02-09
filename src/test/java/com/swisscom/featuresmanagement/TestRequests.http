@@ -1,11 +1,11 @@
 POST http://localhost:8080/v1/features
 Content-Type: application/json
 
-{"technicalName" : "feature10",
+{"technicalName" : "TechnicalName-1",
 "displayName": "Feature 1",
 "Description": "Description for Feature 1",
 "enabled": true,
-"expiration": "2023-01-30T00:00:00Z",
+"expiration": "2023-03-30T00:00:00Z",
 "customerIds": ["121", "124", "125"]}
 
 ###
