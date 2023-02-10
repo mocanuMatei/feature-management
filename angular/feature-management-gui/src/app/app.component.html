@@ -1,0 +1,30 @@
+<div>
+
+  <nav class="navbar navbar-expand navbar-light shadow p-3 mb-5 bg-white">
+    <a class="navbar-brand" href="/">
+      <img src="../assets/logo.png"
+           height="70px" alt="">
+    </a>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item mx-2">
+        <a id="navbar-button-features" mat-raised-button color="primary" href="/features" routerLink="features">Features</a>
+      </li>
+
+      <li class="nav-item">
+        <a id="navbar-button-add-new-feature" mat-raised-button color="primary" href="/addFeature" routerLink="addFeature">Add Feature</a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <span>Made by Matei Mocanu</span>
+    </div>
+  </footer>
+</div>

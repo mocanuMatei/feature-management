@@ -1,0 +1,23 @@
+<h1><strong>Add new feature</strong></h1>
+
+<p></p>
+<input type="text" class="form-control" id="displayName" placeholder="Display Name">
+<input type="text" class="form-control" id="technicalName" placeholder="Technical name, must be unique">
+<input type="text" class="form-control" id="description" placeholder="Description">
+<input type="text" class="form-control" id="expiration" placeholder="Expiration date - YYYY-MM-DDTHH:mm:SS">
+
+<p></p>
+<mat-slide-toggle [checked]=false (change)="onChangeToggleEnabled($event)">Enabled</mat-slide-toggle>
+
+<p></p>
+<textarea class="form-control" id="customerIds" rows="3"
+          placeholder="Customer Ids, separated with comma ' , '"></textarea>
+
+<ngb-alert *ngIf="featureAddedSuccessfully" type="success" (closed)="featureAddedSuccessfully = false">
+  Feature added successfully
+</ngb-alert>
+
+<p></p>
+<div *ngIf="!featureAddedSuccessfully">
+  <button mat-raised-button color="primary" (click)="addFeature()">Add feature</button>
+</div>

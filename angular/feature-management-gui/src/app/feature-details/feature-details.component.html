@@ -1,0 +1,45 @@
+<div *ngIf="feature">
+  <h1>{{feature.displayName}}</h1>
+  <p></p>
+  <h1><strong>Details:</strong></h1>
+
+  <p></p>
+  <h2><strong>ID: </strong>{{feature.id}}</h2>
+
+  <p></p>
+  <mat-slide-toggle [checked] = feature.enabled (change)="onChangeToggle($event)">Enabled</mat-slide-toggle>
+
+  <p></p>
+  <label class="h5">Display Name</label>
+  <input type="text" class="form-control" id="displayName" value="{{feature.displayName}}">
+
+  <p></p>
+  <label class="h5">Technical Name</label>
+  <input type="text" class="form-control" id="technicalName" value="{{feature.technicalName}}">
+
+  <p></p>
+  <label class="h5">Description</label>
+  <input type="text" class="form-control" id="description" value="{{feature.description}}">
+
+  <p></p>
+  <label class="h5">Expiration</label>
+  <input type="text" class="form-control" id="expiration" placeholder="YYYY-MM-DDTHH:mm:SS" value="{{feature.expiration}}">
+
+  <p></p>
+  <label class="h5">Customer Ids, separated with comma ","</label>
+  <textarea class="form-control" id="customerIds" rows="3" value="{{feature.customerIds}}"></textarea>
+
+  <p></p>
+  <h2><strong>Date created: </strong>{{feature.created}}</h2>
+
+  <ngb-alert *ngIf="featureEditedSuccessfully" type="success" (closed)="featureEditedSuccessfully = false">
+    Feature edited successfully
+  </ngb-alert>
+
+  <p></p>
+  <div *ngIf="!featureEditedSuccessfully">
+    <button mat-raised-button color="primary" (click)="editFeature()">Save</button>
+  </div>
+
+</div>
+
